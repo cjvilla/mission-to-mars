@@ -1,83 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
+​
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mission to Mars</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Mission to Mars</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+​
+	
 </head>
-
+​
 <body>
-  <div class="container">
-
-    <div class="jumbotron text-center border-bottom">
-      <h1 class="font-weight-bold">Mission to Mars</h1>
-      <p><a class="btn btn-primary btn-lg" href="../scrape" role="button">Scrape New Data</a></p>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <h2><u>Latest Mars News</u></h2>
-      </div>
-    </div>
-  </br>
-    <div class="row">
-      <div class="col-md-12">
-        <h4>{{mars.news_title}}</h4>
-        <p>{{mars.news_p}}</p>
-      </div>
-    </div>
-  <hr>
-    <div class="row">
-      <div class="col-md-8 border">
-        <h2 class=""><u>Featured Mars Image</u></h2> 
-        </br>
-        <img src="{{mars.featured_image_url}}" alt="Features Mars Image">
-      </div>
-      <div class="col-md-4">
-        <div class="border">
-          </br>
-          <h5>Current Weather on Mars</h5>
-          {{mars.mars_weather}}
-        </div>
-        </br>
-        <div class="border">
-          <h5>Mars Facts</h5>
-            {{ mars.fact_table | safe }}
-        </div>
-      </div>
-    </div>
-  <hr>
-    <div class="row">
-      <div class="col-md-8 offset-4">
-        <h2 class="align-items-center"><u>Mars hemispheres</u></h2>  
-      </div>
-    </div>
-    </br>
-    <div class="row">       
-            {% for hemisphere in mars.hemisphere_images %} 
-              <div class="col-6 border">
-              </br>
-                    <div>
-                      <img width="512 px" height="512 px" src="{{ hemisphere.img_url | safe }}">
-                    </div>
-
-                    <div>
-                      <h4> {{ hemisphere.title | safe }} </h4>  
-                    </div>
-            
-              </div>
-            {% endfor %}
-    </div> 
-
-  <hr>
-  
+	<div class="container-fluid">
+		<div class="jumbotron text-center">
+			<h1>Mission to Mars</h1>
+			<p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+		</div>
+​
+​
+		<h3>Latest Mars News</h3>
+		<p><span style="font-weight:bold">NASA Ingenuity Mars Helicopter Prepares for First Flight</span></p>
+		<p>Managed by the Mars Exploration Program and the Jet Propulsion Laboratory for NASA’s Science Mission Directorate</p>
+​
+		<div class="row">
+			<div class="col-xs-8 col-md-8">
+				<h3>Featured Mars Image</h3>
+				<img src="https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/image/featured/mars2.jpg" style="width:100%" class="img-responsive"
+					style="padding-right: 20px; padding left: 20px;" alt="featured_image"><br />
+				
+			</div>
+			<div class="col-xs-4 col-md-4">
+				<div class="col-xs-auto col-md-auto">
+					<h3>Mars Facts</h3>
+					<style>
+						table,
+						th,
+						td {
+							border: 1px solid black;
+						}
+​
+						th,
+						td {
+							padding: 3px;
+						}
+					</style>
+				<table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Index</th>
+              <th scope="col">Description</th>
+              <th scope="col">Values</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Equatorial Diameter:</td>
+              <td>6,792 km</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Polar Diameter:</td>
+              <td>6,752 km</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Mass</td>
+              <td>6.39 x 10^23 kg (0.11 Earths)</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Moons</td>
+              <td>2 (Phobos & Deimos)</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Orbit Distance:</td>
+              <td>227,943,824 km (1.38 AU)</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Orbit Period:</td>
+              <td>689 days (1.9 years)</td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td>Surface Temperature:</td>
+              <td>-87 to -5 °C</td>
+            </tr>
+            <tr>
+              <th scope="row">8</th>
+              <td>First Record:</td>
+              <td>2nd millennium BC</td>
+            </tr>
+            <tr>
+              <th scope="row">9</th>
+              <td>Recorded By:</td>
+              <td>Egyptian astronomers</td>
+            </tr>
+          </tbody>
+        </table>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<h3 class="text-center">Mars Hemispheres</h3>
+		<br>
+		<div class="row">
+			<div class="col-xs-6 col-md-6">
+				<img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg" style="width:100%" class="img-responsive"
+					style="padding-right: 20px; padding left: 20px;"
+					alt="Cerberus Hemisphere" />
+				<h5>Cerberus Hemisphere</h5>
+​
+			</div>
+			<div class="col-xs-6 col-md-6">
+				<img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/schiaparelli_enhanced.tif/full.jpg" style="width:100%" class="img-responsive"
+					style="padding-right: 20px; padding left: 20px;"
+					alt="Schiaparelli Hemisphere" />
+				<h5>Schiaparelli Hemisphere</h5>
+			</div>
+		</div>
+​
+		<div class="row">
+			<div class="col-xs-6 col-md-6">
+				<img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif/full.jpg"
+					style="padding-right: 20px; padding left: 20px;"
+					alt="Syrtis Major Hemisphere" />
+				<h5>Syrtis Major Hemisphere</h5>
+​
+			</div>
+			<div class="col-xs-6 col-md-6">
+				<img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/valles_marineris_enhanced.tif/full.jpg" style="width:100%" class="img-responsive"
+					style="padding-right: 20px; padding left: 20px;"
+					alt="Valles Marineris Hemisphere" />
+				<h5>Valles Marineris Hemisphere</h5>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
 </body>
-
 </html>

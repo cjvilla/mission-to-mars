@@ -16,5 +16,5 @@ Completed an intial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and 
 MongoDB with Flask was used to create a new HTML page that displays all of the information that was scraped from the URLs above. Below are images to my developed HTML page
 
 ![final_app_part1.png](Images/top_half.png)
-![final_app_part2.png](middle_half.png)
-![final_app_part2.png](bottom_half.png)
+![final_app_part2.png](Images/middle_half.png)
+![final_app_part2.png](Images/bottom_half.png)

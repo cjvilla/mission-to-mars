@@ -15,4 +15,3 @@ MongoDB with Flask was used to create a new HTML page that displays all of the i
 
 ![final_app_part1.png](Images/top_half.png)
 ![final_app_part2.png](Images/middle_half.png)
-![final_app_part2.png](Images/bottom_half.png)
